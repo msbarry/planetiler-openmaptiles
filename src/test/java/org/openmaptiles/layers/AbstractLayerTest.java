@@ -149,7 +149,8 @@ public abstract class AbstractLayerTest {
   }
 
   private static Geometry latLonLineWithLength(double length) {
-    return GeoUtils.worldToLatLonCoords(newLineString(0.5, 0.5, 0.5 + GeoUtils.metersToPixelAtEquator(0, length), 0.5));
+    return GeoUtils
+      .worldToLatLonCoords(newLineString(0.5, 0.5, 0.5 + GeoUtils.metersToPixelAtEquator(0, length) / 256, 0.5));
   }
 
   SourceFeature closedWayFeature(Map<String, Object> props) {

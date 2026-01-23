@@ -547,7 +547,7 @@ public class Transportation implements
     }
   }
 
-  private static final double TRUNK_Z0_UPGRADE_LENGTH = GeoUtils.metersToPixelAtEquator(0, 500);
+  private static final double TRUNK_Z0_UPGRADE_LENGTH = GeoUtils.metersToPixelAtEquator(0, 500) / 256d;
 
   private boolean isTrunkZ5MergeableLength(Tables.OsmHighwayLinestring element) {
     try {
@@ -618,7 +618,7 @@ public class Transportation implements
   private boolean isPierPolygon(Tables.OsmHighwayLinestring element) {
     if ("pier".equals(element.manMade())) {
       try {
-        if (element.source().worldGeometry()instanceof LineString lineString && lineString.isClosed()) {
+        if (element.source().worldGeometry() instanceof LineString lineString && lineString.isClosed()) {
           // ignore this because it's a polygon
           return true;
         }
